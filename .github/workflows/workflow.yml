@@ -22,7 +22,9 @@ jobs: # 작업 정의
 
             const body = pull_request.body;
 
-            if (!body) {
+            const message = "아래 기입내용을 작성해주시고 해당 라인을 삭제해주세요"
+
+            if (!body || body.includes(message)) {
               console.log("Pull Request body is empty. Adding a comment and closing the PR.");
 
               // PR에 코멘트 추가
